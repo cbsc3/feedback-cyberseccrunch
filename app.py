@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from flask import Flask, render_template, session, url_for, redirect, request
 import datetime
+import os
 app = Flask(__name__)
 
 cluster = MongoClient('mongodb+srv://admin:password12345@cluster0.gsfkl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
@@ -31,4 +32,5 @@ def home():
 
 
 if __name__ == "__main__":
-	app.run()
+   port = int(os.environ.get("PORT", 5000))
+   app.run(debug=True, port=port)
