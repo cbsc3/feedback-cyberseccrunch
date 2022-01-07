@@ -25,7 +25,7 @@ def home():
 
 	  post = {"Username":username, "Question":question, "Time Submitted":time}
 	  collections.insert_one(post)
-	  return render_template('thank.html')
+	  return render_template('thank.html', question=question)
 
 
   return render_template('index.html')
